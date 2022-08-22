@@ -5,19 +5,24 @@ import "decimalValue.proto";
 option csharp_namespace = "BalanceForClient";
 package customTypes;
 
+//Сервис баланса Пользователя
 service BalanceService
 {
   rpc GetBalance(GetBalanceRequest) returns(GetBalanceResponse);
 }
-
+//Запрос баланса Пользователя
 message GetBalanceRequest
 {
+        //Id пользователя, который расшифровывается по схеме 8-4-4-4-12: 
+        //"3422b448-2460-4fd2-9183-8000de6f8343".
 	string id = 1;
 }
 
 message GetBalanceResponse
 {
-	string user_id = 1;
-
+        //Id пользователя, который расшифровывается по схеме 8-4-4-4-12: 
+        //"3422b448-2460-4fd2-9183-8000de6f8343".
+	string user_id = 1; 
+        //Баланс Пользователя
 	moneyTypes.DecimalValue balance = 2;
 }
